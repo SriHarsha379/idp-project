@@ -1,0 +1,172 @@
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #6366f1, #3b82f6, #8b5cf6, #a855f7);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  font-family: "Inter", sans-serif;
+}
+
+/* 🧊 Glassy container */
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  width: 24rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 🏷️ Titles */
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* ✍️ Input with floating label */
+.inputGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.input:focus + .label,
+.filledLabel {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #4f46e5;
+  background: white;
+  padding: 0 5px;
+}
+
+/* 🔘 Button */
+.button {
+  width: 100%;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 💬 Message and footer */
+.message {
+  text-align: center;
+  margin-top: 1rem;
+  color: #4b5563;
+}
+
+.footerText {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #4b5563;
+}
+
+.link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* 🌙 Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: rgba(30, 32, 40, 0.8);
+    color: #f9fafb;
+  }
+  .title {
+    color: #f9fafb;
+  }
+  .subtitle {
+    color: #9ca3af;
+  }
+  .input {
+    color: white;
+    border-color: #4b5563;
+  }
+  .label {
+    color: #9ca3af;
+  }
+  .input:focus + .label,
+  .filledLabel {
+    background: #1f2937;
+  }
+  .footerText {
+    color: #9ca3af;
+  }
+}

@@ -1,0 +1,9 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+  worker:
+    build:
+      context: .
+      dockerfile: python/Dockerfile

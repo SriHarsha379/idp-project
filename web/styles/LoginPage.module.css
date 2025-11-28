@@ -1,0 +1,134 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4c6ef5, #7b2ff7, #f368e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  animation: fadeIn 0.8s ease-out;
+  background-size: 300% 300%;
+  animation: gradientMove 12s infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  padding: 35px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.logo {
+  font-size: 60px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  text-align: left;
+}
+
+.inputGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.inputGroup input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #ddd;
+  background: #fafafa;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.inputGroup input:focus {
+  border-color: #7b2ff7;
+  outline: none;
+  box-shadow: 0 0 6px rgba(123,47,247,0.3);
+}
+
+.button {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 15px;
+  color: #444;
+  font-size: 14px;
+}
+
+.footerText {
+  margin-top: 20px;
+  color: #555;
+}
+
+.link {
+  color: #7b2ff7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

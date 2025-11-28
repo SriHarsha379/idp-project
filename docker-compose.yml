@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6380:6379"
+
+  api:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    volumes:
+      - ./python:/app    # live mount Python code
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_BACKEND_URL=${CELERY_BACKEND_URL}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - FLASK_ENV=development
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    command: sh -c "pip install watchdog && flask --app main run --host=0.0.0.0 --port=5000 --reload"
+
+  worker:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    volumes:
+      - ./python:/app    # live mount Python code
+    environment:
+      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
+      - CELERY_BACKEND_URL=${CELERY_BACKEND_URL}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - C_FORCE_ROOT=true
+    depends_on:
+      - redis
+      - api
+    command: watchmedo auto-restart --recursive --pattern="*.py" -- celery -A celery_app worker -l info
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ./web:/app      # live mount Next.js code
+      - /app/node_modules   # do not override node deps
+    environment:
+      - PYTHON_API_URL=${PYTHON_API_URL}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    command: npm run dev

@@ -1,0 +1,92 @@
+.floatingBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: 0.2s;
+}
+
+.floatingBtn:hover {
+  transform: scale(1.1);
+  background: #1d4ed8;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(3px);
+  z-index: 9998;
+}
+
+.panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 450px;
+  background: white;
+  border-left: 3px solid #2563eb;
+  padding: 20px;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.searchBox {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.searchBox input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.searchBox button {
+  background: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  text-align: left;
+}

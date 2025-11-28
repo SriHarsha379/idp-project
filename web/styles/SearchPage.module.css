@@ -1,0 +1,134 @@
+/* Background */
+.page {
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #dbeafe, #f3e8ff, #e0e7ff);
+}
+
+/* Card Container */
+.container {
+  width: 650px;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Fade Animation */
+.fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Titles */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1e1b4b;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 22px;
+}
+
+/* Search Box */
+.searchBox {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Button */
+.button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.5);
+}
+
+/* Mode & Messages */
+.mode {
+  text-align: center;
+  margin-top: 6px;
+  color: #6b7280;
+}
+.message {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #1e1b4b;
+}
+
+/* Table Wrapper with slide animation */
+.tableWrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+.slideUp {
+  animation: slideUp 0.6s ease-out;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.table th {
+  background: #eef2ff;
+  padding: 12px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #4338ca;
+  border-bottom: 2px solid #c7d2fe;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+}
+
+.row:hover {
+  background: #f0f9ff;
+  transition: 0.25s;
+}

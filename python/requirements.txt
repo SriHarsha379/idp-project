@@ -1,0 +1,14 @@
+celery[redis]
+python-dotenv
+openai>=1.0
+pydantic
+pypdfium2
+pillow
+opencv-python-headless
+numpy
+pdf2image
+Flask
+Flask-CORS
+gunicorn
+pytesseract
+watchdog
